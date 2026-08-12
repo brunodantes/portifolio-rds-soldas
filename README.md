@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RDR Soldas e Serviços — Landing Page
 
-## Getting Started
+Landing page em Next.js para a RDR Soldas e Serviços (Rafael Reale), com o visual industrial
+de solda ("efeitos de solda") originalmente prototipado em Claude Design, agora reimplementado
+como um app React/Next.js real.
 
-First, run the development server:
+## Rodando localmente
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estrutura
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+app/
+  layout.tsx        — fontes (Archivo/Barlow), metadata SEO
+  page.tsx           — composição das seções
+  globals.css         — paleta, reset, keyframes das animações (faíscas, sheen, arco elétrico)
+  api/contact/route.ts — recebe o formulário de contato e envia por e-mail (nodemailer)
+components/          — uma seção por componente (Header, Hero, ValueProps, Services,
+                        Process, Gallery, Contact, Footer, WhatsAppFloat) + CSS Modules
+lib/constants.ts     — número de WhatsApp e e-mail de contato centralizados
+```
 
-## Learn More
+A pasta `Landing page com efeitos de solda/` contém o export original do protótipo (Claude
+Design) e serve só de referência visual — não faz parte do app.
 
-To learn more about Next.js, take a look at the following resources:
+## Formulário de contato (envio por e-mail)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+O formulário em `#contato` envia os dados para `/api/contact`, que dispara um e-mail via SMTP
+(nodemailer). Configure as variáveis de ambiente antes de usar em produção:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+cp .env.local.example .env.local
+```
 
-## Deploy on Vercel
+Preencha `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS` e `CONTACT_TO_EMAIL`. Sem essas
+variáveis, a rota responde com um erro amigável orientando o visitante a usar o WhatsApp.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Galeria de trabalhos
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+A seção `#galeria` está com placeholders estáticos (sem upload). Quando houver fotos reais dos
+serviços, troque os placeholders em `components/Gallery.tsx` por `next/image` apontando para as
+imagens.
+
+## WhatsApp
+
+O número de WhatsApp e o e-mail de contato ficam em `lib/constants.ts`. O botão flutuante e os
+CTAs abrem `wa.me` com uma mensagem pré-preenchida.

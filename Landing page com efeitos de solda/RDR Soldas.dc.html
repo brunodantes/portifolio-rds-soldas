@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:#061027;color:#eef2f8;font-family:Barlow,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:#ff5a5f;text-decoration:none}
+  a:hover{color:#ff8a8e}
+  input,textarea,select,button{font-family:inherit}
+  @keyframes ember{0%{transform:translateY(0) translateX(0) scale(1);opacity:0}12%{opacity:.9}70%{opacity:.55}100%{transform:translateY(-260px) translateX(26px) scale(.35);opacity:0}}
+  @keyframes arcRun{0%{transform:translateX(-12%);opacity:0}20%{opacity:1}80%{opacity:1}100%{transform:translateX(112%);opacity:0}}
+  @keyframes edgeHeat{0%{box-shadow:inset 0 0 0 1px rgba(225,27,34,0),0 0 0 0 rgba(225,27,34,0)}45%{box-shadow:inset 0 0 0 1px rgba(255,140,90,.9),0 0 30px -6px rgba(225,27,34,.55)}100%{box-shadow:inset 0 0 0 1px rgba(225,27,34,.85),0 0 20px -8px rgba(225,27,34,.45)}}
+  @keyframes sheen{0%{transform:translateX(-140%) skewX(-18deg)}55%,100%{transform:translateX(240%) skewX(-18deg)}}
+  @keyframes waPulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.45)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+  @keyframes arcFlicker{0%,100%{opacity:.32}42%{opacity:.55}47%{opacity:.22}62%{opacity:.6}}
+</style>
+</helmet>
+
+<div style="position:relative;overflow-x:hidden">
+
+<header style="position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(6,16,39,.82);backdrop-filter:blur(14px);border-bottom:1px solid rgba(160,190,255,.14)">
+  <div style="max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;flex-wrap:wrap;gap:16px 28px">
+    <a href="#topo" style="display:flex;align-items:center;gap:12px;text-decoration:none">
+      <div style="width:44px;height:44px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(150deg,#f6f8fa,#b9c0cb 46%,#f0f3f6 58%,#98a0ac);border:1px solid rgba(255,255,255,.5);box-shadow:0 2px 10px rgba(0,0,0,.4)">
+        <span style="font-family:Archivo;font-weight:900;font-size:17px;letter-spacing:-.5px;color:#0a1838">RDR</span>
+      </div>
+      <div style="display:flex;flex-direction:column;line-height:1">
+        <span style="font-family:Archivo;font-weight:800;font-size:15px;letter-spacing:.14em;color:#fff">SOLDAS</span>
+        <span style="font-family:Barlow;font-weight:600;font-size:11px;letter-spacing:.22em;color:#e11b22;margin-top:3px">E SERVIÇOS</span>
+      </div>
+    </a>
+    <nav style="margin-left:auto;display:flex;align-items:center;flex-wrap:wrap;justify-content:flex-end;gap:14px 22px">
+      <a href="#servicos" style="font-size:14.5px;font-weight:500;color:#c6d3e8" style-hover="color:#fff">Serviços</a>
+      <a href="#padrao" style="font-size:14.5px;font-weight:500;color:#c6d3e8" style-hover="color:#fff">Como trabalhamos</a>
+      <a href="#galeria" style="font-size:14.5px;font-weight:500;color:#c6d3e8" style-hover="color:#fff">Trabalhos</a>
+      <a href="#contato" style="font-size:14.5px;font-weight:500;color:#c6d3e8" style-hover="color:#fff">Contato</a>
+      <a href="https://wa.me/5511961522280" target="_blank" style="position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:8px;background:linear-gradient(180deg,#e11b22,#a8121a);color:#fff;font-family:Archivo;font-weight:700;font-size:13.5px;letter-spacing:.04em;border:1px solid rgba(255,255,255,.18);box-shadow:0 6px 18px -8px rgba(225,27,34,.9)" style-hover="filter:brightness(1.12)" style-before="content:'';position:absolute;top:0;left:0;width:34%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.42),transparent);animation:sheen 4.5s ease-in-out infinite">
+        <span style="position:relative">PEDIR ORÇAMENTO</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<section id="topo" style="position:relative;padding:170px 24px 110px;background:radial-gradient(1100px 620px at 22% 12%,#123063 0%,#0a1838 46%,#061027 100%);overflow:hidden">
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(6,16,39,.9));pointer-events:none"></div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:100%;pointer-events:none;overflow:hidden">
+    <div style="position:absolute;bottom:-8px;left:6%;width:3px;height:3px;border-radius:50%;background:#ff8a3d;box-shadow:0 0 8px 2px rgba(255,110,40,.7);animation:ember 11s linear infinite;animation-delay:0s"></div>
+    <div style="position:absolute;bottom:-8px;left:14%;width:2px;height:2px;border-radius:50%;background:#ffb066;box-shadow:0 0 7px 2px rgba(255,140,60,.6);animation:ember 14s linear infinite;animation-delay:2.4s"></div>
+    <div style="position:absolute;bottom:-8px;left:23%;width:3px;height:3px;border-radius:50%;background:#ff6a2a;box-shadow:0 0 9px 2px rgba(255,90,30,.65);animation:ember 12.5s linear infinite;animation-delay:5.1s"></div>
+    <div style="position:absolute;bottom:-8px;left:35%;width:2px;height:2px;border-radius:50%;background:#ffc98a;box-shadow:0 0 6px 2px rgba(255,160,80,.55);animation:ember 15s linear infinite;animation-delay:1.2s"></div>
+    <div style="position:absolute;bottom:-8px;left:46%;width:3px;height:3px;border-radius:50%;background:#ff8a3d;box-shadow:0 0 8px 2px rgba(255,110,40,.6);animation:ember 13s linear infinite;animation-delay:7.3s"></div>
+    <div style="position:absolute;bottom:-8px;left:58%;width:2px;height:2px;border-radius:50%;background:#ffb066;box-shadow:0 0 7px 2px rgba(255,140,60,.55);animation:ember 16s linear infinite;animation-delay:3.8s"></div>
+    <div style="position:absolute;bottom:-8px;left:69%;width:3px;height:3px;border-radius:50%;background:#ff6a2a;box-shadow:0 0 9px 2px rgba(255,90,30,.6);animation:ember 12s linear infinite;animation-delay:6.4s"></div>
+    <div style="position:absolute;bottom:-8px;left:80%;width:2px;height:2px;border-radius:50%;background:#ffc98a;box-shadow:0 0 6px 2px rgba(255,160,80,.5);animation:ember 14.5s linear infinite;animation-delay:9.1s"></div>
+    <div style="position:absolute;bottom:-8px;left:90%;width:3px;height:3px;border-radius:50%;background:#ff8a3d;box-shadow:0 0 8px 2px rgba(255,110,40,.55);animation:ember 13.5s linear infinite;animation-delay:4.6s"></div>
+  </div>
+
+  <div style="position:relative;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:64px;align-items:center">
+    <div>
+      <div style="display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 10px;border-radius:999px;border:1px solid rgba(225,27,34,.45);background:rgba(225,27,34,.1);margin-bottom:26px">
+        <span style="width:7px;height:7px;border-radius:50%;background:#e11b22;box-shadow:0 0 10px 2px rgba(225,27,34,.8)"></span>
+        <span style="font-size:12.5px;font-weight:600;letter-spacing:.16em;color:#ffb9bc">ATENDIMENTO EM TODA A GRANDE SP</span>
+      </div>
+      <h1 style="margin:0;font-family:Archivo;font-weight:900;font-size:clamp(40px,5.4vw,72px);line-height:1.02;letter-spacing:-.025em;text-wrap:balance;background:linear-gradient(168deg,#ffffff 0%,#dfe5ee 34%,#a8b2c1 52%,#ffffff 78%);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 1px 0 rgba(0,0,0,.25)">Solda e serralheria com acabamento impecável</h1>
+      <div style="position:relative;height:2px;width:220px;margin:30px 0 26px;background:linear-gradient(90deg,#e11b22,rgba(225,27,34,0));overflow:hidden">
+        <div style="position:absolute;top:-2px;left:0;width:46px;height:6px;border-radius:3px;background:radial-gradient(circle,rgba(255,235,200,1),rgba(255,120,50,0) 70%);animation:arcRun 5s ease-in-out infinite"></div>
+      </div>
+      <p style="margin:0 0 36px;max-width:560px;font-size:19px;line-height:1.62;color:#b9c8e2">Rafael Reale atende residências, obras e indústrias na Grande São Paulo. Da grade do portão à manutenção da linha de produção, o serviço sai limpo, no prazo e do jeito que você combinou.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center">
+        <a href="https://wa.me/5511961522280" target="_blank" style="position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:11px;padding:17px 30px;border-radius:10px;background:linear-gradient(180deg,#e11b22,#9d1018);color:#fff;font-family:Archivo;font-weight:800;font-size:15.5px;letter-spacing:.04em;border:1px solid rgba(255,255,255,.2);box-shadow:0 14px 34px -14px rgba(225,27,34,.95)" style-hover="filter:brightness(1.12);transform:translateY(-1px)" style-before="content:'';position:absolute;top:0;left:0;width:30%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);animation:sheen 4.2s ease-in-out infinite">
+          <span style="position:relative">FALAR NO WHATSAPP</span>
+        </a>
+        <a href="#servicos" style="display:inline-flex;align-items:center;gap:10px;padding:17px 26px;border-radius:10px;border:1px solid rgba(180,205,255,.28);color:#dbe5f5;font-family:Archivo;font-weight:700;font-size:15px;letter-spacing:.04em;background:rgba(255,255,255,.03)" style-hover="border-color:rgba(180,205,255,.6);background:rgba(255,255,255,.07);color:#fff">VER SERVIÇOS</a>
+      </div>
+      <div style="margin-top:34px;display:flex;flex-wrap:wrap;gap:26px;font-size:14.5px;color:#8fa3c4">
+        <span>11 96152-2280</span>
+        <span style="color:#33456b">·</span>
+        <span>rdrsolda@gmail.com</span>
+      </div>
+    </div>
+
+    <div style="position:relative;display:grid;place-items:center;min-height:380px;width:100%">
+      <div style="position:absolute;width:min(340px,100%);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(120,180,255,.35),rgba(120,180,255,0) 62%);animation:arcFlicker 3.6s ease-in-out infinite"></div>
+      <div style="position:relative;width:min(300px,100%);aspect-ratio:1;border-radius:26px;background:linear-gradient(152deg,#f6f8fa 0%,#c6ccd6 40%,#eef1f5 54%,#9aa2ae 100%);border:1px solid rgba(255,255,255,.6);box-shadow:0 30px 70px -30px rgba(0,0,0,.9),inset 0 1px 0 rgba(255,255,255,.8);display:grid;place-items:center;overflow:hidden">
+        <div style="position:absolute;inset:0;background:repeating-linear-gradient(118deg,rgba(255,255,255,.5) 0 1px,rgba(255,255,255,0) 1px 4px);opacity:.5"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(200deg,rgba(255,255,255,.55),transparent 40%)"></div>
+        <div style="position:relative;text-align:center;padding:20px">
+          <div style="font-family:Archivo;font-weight:900;font-size:76px;line-height:.9;letter-spacing:-.03em;color:#0a1838;text-shadow:0 1px 0 rgba(255,255,255,.8),0 3px 6px rgba(0,0,0,.25)">RDR</div>
+          <div style="margin-top:12px;font-family:Archivo;font-weight:800;font-size:16px;letter-spacing:.1em;color:#0a1838">SOLDAS E <span style="color:#c0121a">SERVIÇOS</span></div>
+          <div style="margin-top:14px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:7px;font-size:10.5px;font-weight:600;letter-spacing:.13em;color:#31405f">
+            <span>QUALIDADE</span><span style="width:4px;height:4px;border-radius:50%;background:#c0121a"></span><span>SEGURANÇA</span><span style="width:4px;height:4px;border-radius:50%;background:#c0121a"></span><span>COMPROMISSO</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="position:relative;padding:0 24px;background:#061027">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:rgba(160,190,255,.14);border:1px solid rgba(160,190,255,.14);border-radius:14px;overflow:hidden;transform:translateY(-42px)">
+    <div style="padding:30px 26px;background:#0a1838" style-hover="animation:edgeHeat 600ms ease-out forwards;background:#0d1f45">
+      <div style="font-family:Archivo;font-weight:800;font-size:15px;letter-spacing:.1em;color:#fff">QUALIDADE</div>
+      <p style="margin:12px 0 0;font-size:14.5px;line-height:1.6;color:#9fb2d0">Executamos cada projeto com atenção aos detalhes e acabamento impecável.</p>
+    </div>
+    <div style="padding:30px 26px;background:#0a1838" style-hover="animation:edgeHeat 600ms ease-out forwards;background:#0d1f45">
+      <div style="font-family:Archivo;font-weight:800;font-size:15px;letter-spacing:.1em;color:#fff">SEGURANÇA</div>
+      <p style="margin:12px 0 0;font-size:14.5px;line-height:1.6;color:#9fb2d0">Trabalhamos com responsabilidade, seguindo normas e boas práticas.</p>
+    </div>
+    <div style="padding:30px 26px;background:#0a1838" style-hover="animation:edgeHeat 600ms ease-out forwards;background:#0d1f45">
+      <div style="font-family:Archivo;font-weight:800;font-size:15px;letter-spacing:.1em;color:#fff">COMPROMISSO</div>
+      <p style="margin:12px 0 0;font-size:14.5px;line-height:1.6;color:#9fb2d0">Cumprimos prazos e entregamos soluções que superam expectativas.</p>
+    </div>
+    <div style="padding:30px 26px;background:#0a1838" style-hover="animation:edgeHeat 600ms ease-out forwards;background:#0d1f45">
+      <div style="font-family:Archivo;font-weight:800;font-size:15px;letter-spacing:.1em;color:#fff">EXPERIÊNCIA</div>
+      <p style="margin:12px 0 0;font-size:14.5px;line-height:1.6;color:#9fb2d0">Profissionalismo e know-how para garantir resultados sólidos e duradouros.</p>
+    </div>
+  </div>
+</section>
+
+<section id="servicos" style="position:relative;padding:96px 24px 104px;background:linear-gradient(180deg,#e8ebef,#d6dbe2);color:#0a1838;overflow:hidden">
+  <div style="position:absolute;inset:0;background:repeating-linear-gradient(96deg,rgba(255,255,255,.7) 0 1px,rgba(255,255,255,0) 1px 5px);opacity:.45;pointer-events:none"></div>
+  <div style="position:relative;max-width:1200px;margin:0 auto">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-bottom:44px">
+      <div>
+        <div style="font-size:12.5px;font-weight:600;letter-spacing:.2em;color:#c0121a;margin-bottom:14px">O QUE FAZEMOS</div>
+        <h2 style="margin:0;font-family:Archivo;font-weight:900;font-size:clamp(32px,3.6vw,48px);line-height:1.06;letter-spacing:-.02em;color:#0a1838">Serviços de solda e serralheria</h2>
+      </div>
+      <p style="margin:0;max-width:420px;font-size:16.5px;line-height:1.6;color:#41527a">Se o que você precisa não está na lista, chama no WhatsApp. Boa parte dos trabalhos que fazemos é sob medida.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px">
+      <article style="grid-column:span 2;padding:32px 30px;border-radius:14px;background:linear-gradient(158deg,#fbfcfd,#e2e6ec);border:1px solid rgba(10,24,56,.1);box-shadow:0 10px 26px -20px rgba(10,24,56,.7);transition:transform .2s ease" style-hover="animation:edgeHeat 600ms ease-out forwards;transform:translateY(-3px)">
+        <div style="display:inline-block;padding:5px 11px;border-radius:6px;background:#0a1838;color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.14em;margin-bottom:18px">DESTAQUE</div>
+        <h3 style="margin:0 0 10px;font-family:Archivo;font-weight:800;font-size:26px;letter-spacing:-.01em">Estruturas metálicas</h3>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#41527a">Mezaninos, coberturas, escadas e reforços estruturais, do desenho ao chumbamento em obra.</p>
+      </article>
+      <article style="grid-column:span 2;padding:32px 30px;border-radius:14px;background:linear-gradient(158deg,#fbfcfd,#e2e6ec);border:1px solid rgba(10,24,56,.1);box-shadow:0 10px 26px -20px rgba(10,24,56,.7);transition:transform .2s ease" style-hover="animation:edgeHeat 600ms ease-out forwards;transform:translateY(-3px)">
+        <div style="display:inline-block;padding:5px 11px;border-radius:6px;background:#0a1838;color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.14em;margin-bottom:18px">DESTAQUE</div>
+        <h3 style="margin:0 0 10px;font-family:Archivo;font-weight:800;font-size:26px;letter-spacing:-.01em">Portões e grades</h3>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#41527a">Portões basculantes, deslizantes, grades de proteção e portas de serviço sob medida.</p>
+      </article>
+      <article style="grid-column:span 2;padding:32px 30px;border-radius:14px;background:linear-gradient(158deg,#fbfcfd,#e2e6ec);border:1px solid rgba(10,24,56,.1);box-shadow:0 10px 26px -20px rgba(10,24,56,.7);transition:transform .2s ease" style-hover="animation:edgeHeat 600ms ease-out forwards;transform:translateY(-3px)">
+        <div style="display:inline-block;padding:5px 11px;border-radius:6px;background:#0a1838;color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.14em;margin-bottom:18px">DESTAQUE</div>
+        <h3 style="margin:0 0 10px;font-family:Archivo;font-weight:800;font-size:26px;letter-spacing:-.01em">Corrimãos e guarda-corpos</h3>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#41527a">Peças em aço e inox para escadas, sacadas e rampas, com fixação segura e acabamento polido.</p>
+      </article>
+      <article style="grid-column:span 2;padding:32px 30px;border-radius:14px;background:linear-gradient(158deg,#fbfcfd,#e2e6ec);border:1px solid rgba(10,24,56,.1);box-shadow:0 10px 26px -20px rgba(10,24,56,.7);transition:transform .2s ease" style-hover="animation:edgeHeat 600ms ease-out forwards;transform:translateY(-3px)">
+        <div style="display:inline-block;padding:5px 11px;border-radius:6px;background:#0a1838;color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.14em;margin-bottom:18px">DESTAQUE</div>
+        <h3 style="margin:0 0 10px;font-family:Archivo;font-weight:800;font-size:26px;letter-spacing:-.01em">Solda em inox</h3>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#41527a">Bancadas, tubulações e peças que exigem cordão limpo e resistência à corrosão.</p>
+      </article>
+
+      <article style="padding:24px 22px;border-radius:12px;background:rgba(255,255,255,.55);border:1px solid rgba(10,24,56,.09)" style-hover="animation:edgeHeat 600ms ease-out forwards;background:#fff">
+        <h3 style="margin:0 0 8px;font-family:Archivo;font-weight:700;font-size:17px">Solda MIG/MAG</h3>
+        <p style="margin:0;font-size:14.5px;line-height:1.55;color:#51628a">Produção rápida em aço carbono, ideal para estruturas e reparos de volume.</p>
+      </article>
+      <article style="padding:24px 22px;border-radius:12px;background:rgba(255,255,255,.55);border:1px solid rgba(10,24,56,.09)" style-hover="animation:edgeHeat 600ms ease-out forwards;background:#fff">
+        <h3 style="margin:0 0 8px;font-family:Archivo;font-weight:700;font-size:17px">Solda TIG</h3>
+        <p style="margin:0;font-size:14.5px;line-height:1.55;color:#51628a">Precisão para peças finas e trabalhos onde o cordão fica aparente.</p>
+      </article>
+      <article style="padding:24px 22px;border-radius:12px;background:rgba(255,255,255,.55);border:1px solid rgba(10,24,56,.09)" style-hover="animation:edgeHeat 600ms ease-out forwards;background:#fff">
+        <h3 style="margin:0 0 8px;font-family:Archivo;font-weight:700;font-size:17px">Solda em alumínio</h3>
+        <p style="margin:0;font-size:14.5px;line-height:1.55;color:#51628a">Reparos e montagens em alumínio com controle de calor e empenamento.</p>
+      </article>
+      <article style="padding:24px 22px;border-radius:12px;background:rgba(255,255,255,.55);border:1px solid rgba(10,24,56,.09)" style-hover="animation:edgeHeat 600ms ease-out forwards;background:#fff">
+        <h3 style="margin:0 0 8px;font-family:Archivo;font-weight:700;font-size:17px">Manutenção industrial</h3>
+        <p style="margin:0;font-size:14.5px;line-height:1.55;color:#51628a">Recuperação de equipamentos e estruturas sem parar sua produção mais que o necessário.</p>
+      </article>
+      <article style="padding:24px 22px;border-radius:12px;background:rgba(255,255,255,.55);border:1px solid rgba(10,24,56,.09)" style-hover="animation:edgeHeat 600ms ease-out forwards;background:#fff">
+        <h3 style="margin:0 0 8px;font-family:Archivo;font-weight:700;font-size:17px">Serralheria em geral</h3>
+        <p style="margin:0;font-size:14.5px;line-height:1.55;color:#51628a">Grades, tampas, suportes, carrinhos e o que mais a sua rotina pedir.</p>
+      </article>
+      <article style="padding:24px 22px;border-radius:12px;background:rgba(255,255,255,.55);border:1px solid rgba(10,24,56,.09)" style-hover="animation:edgeHeat 600ms ease-out forwards;background:#fff">
+        <h3 style="margin:0 0 8px;font-family:Archivo;font-weight:700;font-size:17px">Atendimento emergencial</h3>
+        <p style="margin:0;font-size:14.5px;line-height:1.55;color:#51628a">Quebrou fora de hora? Chama no WhatsApp que a gente organiza o socorro.</p>
+      </article>
+      <article style="grid-column:span 2;padding:24px 22px;border-radius:12px;background:rgba(10,24,56,.92);border:1px solid rgba(10,24,56,.2);color:#fff" style-hover="animation:edgeHeat 600ms ease-out forwards;background:#0a1838">
+        <h3 style="margin:0 0 8px;font-family:Archivo;font-weight:700;font-size:17px;color:#fff">Projetos sob medida</h3>
+        <p style="margin:0;font-size:14.5px;line-height:1.55;color:#a8bad8">Traga a ideia, a foto ou o desenho. A gente resolve o resto e volta com uma proposta.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="padrao" style="position:relative;padding:100px 24px;background:radial-gradient(900px 520px at 80% 0%,#122e5e 0%,#0a1838 50%,#061027 100%);overflow:hidden">
+  <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden">
+    <div style="position:absolute;bottom:-8px;left:10%;width:2px;height:2px;border-radius:50%;background:#ff9a4d;box-shadow:0 0 7px 2px rgba(255,120,40,.55);animation:ember 15s linear infinite;animation-delay:1.6s"></div>
+    <div style="position:absolute;bottom:-8px;left:34%;width:3px;height:3px;border-radius:50%;background:#ff7a30;box-shadow:0 0 8px 2px rgba(255,100,30,.5);animation:ember 13s linear infinite;animation-delay:5.9s"></div>
+    <div style="position:absolute;bottom:-8px;left:62%;width:2px;height:2px;border-radius:50%;background:#ffc08a;box-shadow:0 0 6px 2px rgba(255,150,70,.45);animation:ember 16s linear infinite;animation-delay:3.2s"></div>
+    <div style="position:absolute;bottom:-8px;left:86%;width:3px;height:3px;border-radius:50%;background:#ff8a3d;box-shadow:0 0 8px 2px rgba(255,110,40,.5);animation:ember 14s linear infinite;animation-delay:8.4s"></div>
+  </div>
+  <div style="position:relative;max-width:1200px;margin:0 auto">
+    <div style="max-width:640px;margin-bottom:52px">
+      <div style="font-size:12.5px;font-weight:600;letter-spacing:.2em;color:#ff6a70;margin-bottom:14px">PADRÃO DE TRABALHO</div>
+      <h2 style="margin:0 0 18px;font-family:Archivo;font-weight:900;font-size:clamp(32px,3.6vw,48px);line-height:1.06;letter-spacing:-.02em;color:#fff">Do primeiro contato à peça entregue</h2>
+      <p style="margin:0;font-size:17px;line-height:1.62;color:#a8bad8">Você sabe o que esperar em cada etapa, sem surpresa no preço nem no prazo.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-bottom:72px">
+      <div style="position:relative;padding:26px 22px 24px;border-radius:12px;background:rgba(255,255,255,.045);border:1px solid rgba(160,190,255,.16)" style-hover="animation:edgeHeat 600ms ease-out forwards;border-color:rgba(225,27,34,.5)">
+        <div style="font-family:Archivo;font-weight:900;font-size:30px;color:#e11b22;line-height:1;margin-bottom:14px">01</div>
+        <div style="font-family:Archivo;font-weight:700;font-size:16px;color:#fff;margin-bottom:8px">Contato</div>
+        <p style="margin:0;font-size:14px;line-height:1.55;color:#93a8c9">Você manda mensagem contando o que precisa. Foto ajuda bastante.</p>
+      </div>
+      <div style="position:relative;padding:26px 22px 24px;border-radius:12px;background:rgba(255,255,255,.045);border:1px solid rgba(160,190,255,.16)" style-hover="animation:edgeHeat 600ms ease-out forwards;border-color:rgba(225,27,34,.5)">
+        <div style="font-family:Archivo;font-weight:900;font-size:30px;color:#e11b22;line-height:1;margin-bottom:14px">02</div>
+        <div style="font-family:Archivo;font-weight:700;font-size:16px;color:#fff;margin-bottom:8px">Visita técnica</div>
+        <p style="margin:0;font-size:14px;line-height:1.55;color:#93a8c9">Medimos no local e conferimos as condições de acesso e instalação.</p>
+      </div>
+      <div style="position:relative;padding:26px 22px 24px;border-radius:12px;background:rgba(255,255,255,.045);border:1px solid rgba(160,190,255,.16)" style-hover="animation:edgeHeat 600ms ease-out forwards;border-color:rgba(225,27,34,.5)">
+        <div style="font-family:Archivo;font-weight:900;font-size:30px;color:#e11b22;line-height:1;margin-bottom:14px">03</div>
+        <div style="font-family:Archivo;font-weight:700;font-size:16px;color:#fff;margin-bottom:8px">Orçamento</div>
+        <p style="margin:0;font-size:14px;line-height:1.55;color:#93a8c9">Proposta escrita com escopo, material, prazo e valor fechado.</p>
+      </div>
+      <div style="position:relative;padding:26px 22px 24px;border-radius:12px;background:rgba(255,255,255,.045);border:1px solid rgba(160,190,255,.16)" style-hover="animation:edgeHeat 600ms ease-out forwards;border-color:rgba(225,27,34,.5)">
+        <div style="font-family:Archivo;font-weight:900;font-size:30px;color:#e11b22;line-height:1;margin-bottom:14px">04</div>
+        <div style="font-family:Archivo;font-weight:700;font-size:16px;color:#fff;margin-bottom:8px">Execução</div>
+        <p style="margin:0;font-size:14px;line-height:1.55;color:#93a8c9">Fabricação e montagem com proteção do ambiente e da sua rotina.</p>
+      </div>
+      <div style="position:relative;padding:26px 22px 24px;border-radius:12px;background:rgba(255,255,255,.045);border:1px solid rgba(160,190,255,.16)" style-hover="animation:edgeHeat 600ms ease-out forwards;border-color:rgba(225,27,34,.5)">
+        <div style="font-family:Archivo;font-weight:900;font-size:30px;color:#e11b22;line-height:1;margin-bottom:14px">05</div>
+        <div style="font-family:Archivo;font-weight:700;font-size:16px;color:#fff;margin-bottom:8px">Entrega e revisão</div>
+        <p style="margin:0;font-size:14px;line-height:1.55;color:#93a8c9">Conferimos junto com você, ajustamos o que for preciso e limpamos a área.</p>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px;align-items:start;padding-top:52px;border-top:1px solid rgba(160,190,255,.16)">
+      <div>
+        <h3 style="margin:0 0 14px;font-family:Archivo;font-weight:800;font-size:28px;letter-spacing:-.01em;color:#fff">Compromissos técnicos</h3>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#93a8c9">O que vale para todo serviço, do portão residencial ao reparo em linha de produção.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:26px 40px">
+        <div>
+          <div style="width:34px;height:2px;background:#e11b22;margin-bottom:14px"></div>
+          <div style="font-family:Archivo;font-weight:700;font-size:16.5px;color:#fff;margin-bottom:7px">Normas e boas práticas</div>
+          <p style="margin:0;font-size:14.5px;line-height:1.55;color:#93a8c9">Processo e material escolhidos conforme a aplicação, não pelo que estiver mais barato.</p>
+        </div>
+        <div>
+          <div style="width:34px;height:2px;background:#e11b22;margin-bottom:14px"></div>
+          <div style="font-family:Archivo;font-weight:700;font-size:16.5px;color:#fff;margin-bottom:7px">EPI e segurança no local</div>
+          <p style="margin:0;font-size:14.5px;line-height:1.55;color:#93a8c9">Proteção do soldador e isolamento da área para não colocar ninguém em risco.</p>
+        </div>
+        <div>
+          <div style="width:34px;height:2px;background:#e11b22;margin-bottom:14px"></div>
+          <div style="font-family:Archivo;font-weight:700;font-size:16.5px;color:#fff;margin-bottom:7px">Acabamento e limpeza</div>
+          <p style="margin:0;font-size:14.5px;line-height:1.55;color:#93a8c9">Cordão esmerilhado, tratamento anticorrosivo e local entregue limpo.</p>
+        </div>
+        <div>
+          <div style="width:34px;height:2px;background:#e11b22;margin-bottom:14px"></div>
+          <div style="font-family:Archivo;font-weight:700;font-size:16.5px;color:#fff;margin-bottom:7px">Garantia no serviço</div>
+          <p style="margin:0;font-size:14.5px;line-height:1.55;color:#93a8c9">Deu problema no que soldamos, a gente volta e resolve.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<sc-if value="{{ mostrarGaleria }}" hint-placeholder-val="{{ true }}">
+<section id="galeria" style="position:relative;padding:96px 24px 104px;background:linear-gradient(180deg,#d6dbe2,#e8ebef);color:#0a1838;overflow:hidden">
+  <div style="position:absolute;inset:0;background:repeating-linear-gradient(84deg,rgba(255,255,255,.7) 0 1px,rgba(255,255,255,0) 1px 5px);opacity:.4;pointer-events:none"></div>
+  <div style="position:relative;max-width:1200px;margin:0 auto">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-bottom:40px">
+      <div>
+        <div style="font-size:12.5px;font-weight:600;letter-spacing:.2em;color:#c0121a;margin-bottom:14px">TRABALHOS</div>
+        <h2 style="margin:0;font-family:Archivo;font-weight:900;font-size:clamp(32px,3.6vw,48px);line-height:1.06;letter-spacing:-.02em">Serviço entregue, cliente satisfeito</h2>
+      </div>
+      <p style="margin:0;max-width:380px;font-size:16px;line-height:1.6;color:#41527a">Arraste suas fotos para os espaços abaixo para montar o portfólio.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));grid-auto-rows:190px;gap:14px">
+      <div style="grid-column:span 2;grid-row:span 2;position:relative"><image-slot id="rdr-1" shape="rounded" radius="12" placeholder="Foto de trabalho — destaque"></image-slot></div>
+      <div style="position:relative"><image-slot id="rdr-2" shape="rounded" radius="12" placeholder="Foto"></image-slot></div>
+      <div style="position:relative"><image-slot id="rdr-3" shape="rounded" radius="12" placeholder="Foto"></image-slot></div>
+      <div style="grid-column:span 2;position:relative"><image-slot id="rdr-4" shape="rounded" radius="12" placeholder="Foto panorâmica"></image-slot></div>
+      <div style="position:relative"><image-slot id="rdr-5" shape="rounded" radius="12" placeholder="Foto"></image-slot></div>
+      <div style="grid-row:span 2;position:relative"><image-slot id="rdr-6" shape="rounded" radius="12" placeholder="Foto vertical"></image-slot></div>
+      <div style="position:relative"><image-slot id="rdr-7" shape="rounded" radius="12" placeholder="Foto"></image-slot></div>
+      <div style="position:relative"><image-slot id="rdr-8" shape="rounded" radius="12" placeholder="Foto"></image-slot></div>
+      <div style="position:relative"><image-slot id="rdr-9" shape="rounded" radius="12" placeholder="Foto"></image-slot></div>
+    </div>
+  </div>
+</section>
+</sc-if>
+
+<section id="contato" style="position:relative;padding:100px 24px;background:radial-gradient(900px 560px at 18% 100%,#12305f 0%,#0a1838 48%,#061027 100%);overflow:hidden">
+  <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden">
+    <div style="position:absolute;bottom:-8px;left:8%;width:3px;height:3px;border-radius:50%;background:#ff8a3d;box-shadow:0 0 8px 2px rgba(255,110,40,.6);animation:ember 12.5s linear infinite;animation-delay:.8s"></div>
+    <div style="position:absolute;bottom:-8px;left:28%;width:2px;height:2px;border-radius:50%;background:#ffb066;box-shadow:0 0 7px 2px rgba(255,140,60,.5);animation:ember 15.5s linear infinite;animation-delay:4.3s"></div>
+    <div style="position:absolute;bottom:-8px;left:52%;width:3px;height:3px;border-radius:50%;background:#ff6a2a;box-shadow:0 0 9px 2px rgba(255,90,30,.55);animation:ember 13.5s linear infinite;animation-delay:7.7s"></div>
+    <div style="position:absolute;bottom:-8px;left:74%;width:2px;height:2px;border-radius:50%;background:#ffc98a;box-shadow:0 0 6px 2px rgba(255,160,80,.45);animation:ember 16.5s linear infinite;animation-delay:2.1s"></div>
+    <div style="position:absolute;bottom:-8px;left:92%;width:3px;height:3px;border-radius:50%;background:#ff8a3d;box-shadow:0 0 8px 2px rgba(255,110,40,.5);animation:ember 14s linear infinite;animation-delay:9.6s"></div>
+  </div>
+  <div style="position:relative;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:64px;align-items:start">
+    <div>
+      <div style="font-size:12.5px;font-weight:600;letter-spacing:.2em;color:#ff6a70;margin-bottom:14px">CONTATO</div>
+      <h2 style="margin:0 0 18px;font-family:Archivo;font-weight:900;font-size:clamp(32px,3.6vw,46px);line-height:1.06;letter-spacing:-.02em;color:#fff">Conta o que você precisa</h2>
+      <p style="margin:0 0 32px;max-width:440px;font-size:17px;line-height:1.62;color:#a8bad8">O jeito mais rápido é o WhatsApp: manda uma foto e a medida aproximada que já dá para adiantar o orçamento.</p>
+      <a href="https://wa.me/5511961522280" target="_blank" style="position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:11px;padding:17px 30px;border-radius:10px;background:linear-gradient(180deg,#25d366,#128c4a);color:#04240f;font-family:Archivo;font-weight:800;font-size:15.5px;letter-spacing:.03em;border:1px solid rgba(255,255,255,.25);box-shadow:0 14px 34px -14px rgba(37,211,102,.8)" style-hover="filter:brightness(1.1);transform:translateY(-1px)">
+        <span>WHATSAPP · 11 96152-2280</span>
+      </a>
+      <div style="margin-top:40px;display:grid;gap:18px">
+        <div>
+          <div style="font-size:12px;font-weight:600;letter-spacing:.16em;color:#6f86ad;margin-bottom:5px">E-MAIL</div>
+          <a href="mailto:rdrsolda@gmail.com" style="font-size:16.5px;color:#e6edf9">rdrsolda@gmail.com</a>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:600;letter-spacing:.16em;color:#6f86ad;margin-bottom:5px">ATENDIMENTO</div>
+          <div style="font-size:16.5px;color:#e6edf9">Seg a sex, 8h às 18h · Sáb, 8h às 12h</div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:600;letter-spacing:.16em;color:#6f86ad;margin-bottom:5px">ÁREA DE ATENDIMENTO</div>
+          <div style="font-size:16.5px;color:#e6edf9">São Paulo capital e Grande São Paulo</div>
+        </div>
+      </div>
+    </div>
+
+    <sc-if value="{{ mostrarFormulario }}" hint-placeholder-val="{{ true }}">
+    <form onSubmit="{{ onSubmit }}" style="padding:34px 32px 30px;border-radius:16px;background:linear-gradient(160deg,rgba(255,255,255,.075),rgba(255,255,255,.03));border:1px solid rgba(160,190,255,.2);box-shadow:0 30px 70px -40px rgba(0,0,0,.9)">
+      <div style="font-family:Archivo;font-weight:800;font-size:20px;color:#fff;margin-bottom:6px">Peça seu orçamento</div>
+      <p style="margin:0 0 24px;font-size:14.5px;line-height:1.55;color:#93a8c9">Retornamos em até um dia útil.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px">
+        <label style="display:flex;flex-direction:column;gap:7px;grid-column:span 2">
+          <span style="font-size:12.5px;font-weight:600;letter-spacing:.1em;color:#8fa5c8">NOME</span>
+          <input type="text" required="required" placeholder="Seu nome" style="padding:13px 14px;border-radius:9px;background:rgba(6,16,39,.6);border:1px solid rgba(160,190,255,.22);color:#eef2f8;font-size:15px;outline:none" style-focus="border-color:#e11b22;box-shadow:0 0 0 3px rgba(225,27,34,.18)" />
+        </label>
+        <label style="display:flex;flex-direction:column;gap:7px">
+          <span style="font-size:12.5px;font-weight:600;letter-spacing:.1em;color:#8fa5c8">WHATSAPP</span>
+          <input type="tel" required="required" placeholder="(11) 90000-0000" style="padding:13px 14px;border-radius:9px;background:rgba(6,16,39,.6);border:1px solid rgba(160,190,255,.22);color:#eef2f8;font-size:15px;outline:none" style-focus="border-color:#e11b22;box-shadow:0 0 0 3px rgba(225,27,34,.18)" />
+        </label>
+        <label style="display:flex;flex-direction:column;gap:7px">
+          <span style="font-size:12.5px;font-weight:600;letter-spacing:.1em;color:#8fa5c8">E-MAIL</span>
+          <input type="email" placeholder="voce@email.com" style="padding:13px 14px;border-radius:9px;background:rgba(6,16,39,.6);border:1px solid rgba(160,190,255,.22);color:#eef2f8;font-size:15px;outline:none" style-focus="border-color:#e11b22;box-shadow:0 0 0 3px rgba(225,27,34,.18)" />
+        </label>
+        <label style="display:flex;flex-direction:column;gap:7px;grid-column:span 2">
+          <span style="font-size:12.5px;font-weight:600;letter-spacing:.1em;color:#8fa5c8">BAIRRO OU CIDADE</span>
+          <input type="text" placeholder="Ex: Vila Prudente, São Paulo" style="padding:13px 14px;border-radius:9px;background:rgba(6,16,39,.6);border:1px solid rgba(160,190,255,.22);color:#eef2f8;font-size:15px;outline:none" style-focus="border-color:#e11b22;box-shadow:0 0 0 3px rgba(225,27,34,.18)" />
+        </label>
+        <label style="display:flex;flex-direction:column;gap:7px;grid-column:span 2">
+          <span style="font-size:12.5px;font-weight:600;letter-spacing:.1em;color:#8fa5c8">O QUE VOCÊ PRECISA</span>
+          <textarea rows="4" placeholder="Descreva o serviço, medidas aproximadas e prazo desejado" style="padding:13px 14px;border-radius:9px;background:rgba(6,16,39,.6);border:1px solid rgba(160,190,255,.22);color:#eef2f8;font-size:15px;outline:none;resize:vertical" style-focus="border-color:#e11b22;box-shadow:0 0 0 3px rgba(225,27,34,.18)"></textarea>
+        </label>
+        <label style="grid-column:span 2;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 16px;border-radius:9px;border:1px dashed rgba(160,190,255,.32);background:rgba(6,16,39,.35);cursor:pointer" style-hover="border-color:rgba(225,27,34,.6)">
+          <span style="font-size:14px;color:#a8bad8">Anexar foto do serviço (opcional)</span>
+          <span style="font-size:12.5px;font-weight:700;letter-spacing:.1em;color:#ff6a70">ESCOLHER</span>
+          <input type="file" accept="image/*" style="display:none" />
+        </label>
+      </div>
+      <button type="submit" style="position:relative;overflow:hidden;width:100%;margin-top:22px;padding:16px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:linear-gradient(180deg,#e11b22,#9d1018);color:#fff;font-family:Archivo;font-weight:800;font-size:15px;letter-spacing:.05em;cursor:pointer;box-shadow:0 14px 34px -16px rgba(225,27,34,.95)" style-hover="filter:brightness(1.12)" style-before="content:'';position:absolute;top:0;left:0;width:30%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);animation:sheen 4.8s ease-in-out infinite">
+        <span style="position:relative">ENVIAR PEDIDO</span>
+      </button>
+      <div style="margin-top:14px;text-align:center;font-size:13.5px;color:#7e93b8">{{ statusForm }}</div>
+    </form>
+    </sc-if>
+  </div>
+</section>
+
+<footer style="padding:56px 24px 40px;background:#040b1c;border-top:1px solid rgba(160,190,255,.12)">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:40px">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+        <div style="width:40px;height:40px;border-radius:8px;display:grid;place-items:center;background:linear-gradient(150deg,#f6f8fa,#b9c0cb 46%,#f0f3f6 58%,#98a0ac)">
+          <span style="font-family:Archivo;font-weight:900;font-size:15px;color:#0a1838">RDR</span>
+        </div>
+        <div style="line-height:1.2">
+          <div style="font-family:Archivo;font-weight:800;font-size:14px;letter-spacing:.12em;color:#fff">SOLDAS E SERVIÇOS</div>
+          <div style="font-size:12.5px;color:#6f86ad">Rafael Reale</div>
+        </div>
+      </div>
+      <p style="margin:0;max-width:300px;font-size:14px;line-height:1.6;color:#6f86ad">Qualidade, segurança e compromisso em cada solda.</p>
+    </div>
+    <div>
+      <div style="font-size:12px;font-weight:600;letter-spacing:.16em;color:#4d628a;margin-bottom:14px">CONTATO</div>
+      <div style="display:grid;gap:9px;font-size:14.5px;color:#c2cfe4">
+        <a href="https://wa.me/5511961522280" target="_blank" style="color:#c2cfe4" style-hover="color:#fff">WhatsApp 11 96152-2280</a>
+        <a href="mailto:rdrsolda@gmail.com" style="color:#c2cfe4" style-hover="color:#fff">rdrsolda@gmail.com</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:12px;font-weight:600;letter-spacing:.16em;color:#4d628a;margin-bottom:14px">HORÁRIO</div>
+      <div style="display:grid;gap:9px;font-size:14.5px;color:#c2cfe4">
+        <span>Seg a sex · 8h às 18h</span>
+        <span>Sábado · 8h às 12h</span>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:12px;font-weight:600;letter-spacing:.16em;color:#4d628a;margin-bottom:14px">EMPRESA</div>
+      <div style="display:grid;gap:9px;font-size:14.5px;color:#c2cfe4">
+        <span>CNPJ 00.000.000/0001-00</span>
+        <span style="font-size:12.5px;color:#4d628a">dado provisório</span>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:40px auto 0;padding-top:22px;border-top:1px solid rgba(160,190,255,.1);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#41567c">
+    <span>© 2026 RDR Soldas e Serviços</span>
+    <span>São Paulo · SP</span>
+  </div>
+</footer>
+
+<sc-if value="{{ ctaFlutuante }}" hint-placeholder-val="{{ true }}">
+<a href="https://wa.me/5511961522280" target="_blank" style="position:fixed;right:26px;bottom:26px;z-index:70;display:inline-flex;align-items:center;gap:10px;padding:15px 22px;border-radius:999px;background:linear-gradient(180deg,#25d366,#12a150);color:#04240f;font-family:Archivo;font-weight:800;font-size:14.5px;letter-spacing:.03em;border:1px solid rgba(255,255,255,.3);animation:waPulse 2.6s ease-out infinite" style-hover="filter:brightness(1.1);transform:translateY(-2px)">WHATSAPP</a>
+</sc-if>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;mostrarGaleria&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Seções&quot;},&quot;mostrarFormulario&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Seções&quot;},&quot;ctaFlutuante&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Seções&quot;}}">
+class Component extends DCLogic {
+  state = { status: "" };
+  renderVals() {
+    return {
+      mostrarGaleria: this.props.mostrarGaleria ?? true,
+      mostrarFormulario: this.props.mostrarFormulario ?? true,
+      ctaFlutuante: this.props.ctaFlutuante ?? true,
+      statusForm: this.state.status,
+      onSubmit: (e) => {
+        e.preventDefault();
+        this.setState({ status: "Pedido registrado. Retornamos em até um dia útil." });
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

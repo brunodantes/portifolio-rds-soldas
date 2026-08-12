@@ -1,0 +1,26 @@
+.button {
+  position: fixed;
+  right: 26px;
+  bottom: 26px;
+  z-index: 70;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 22px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--whatsapp), var(--whatsapp-dark-2));
+  color: #04240f;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 14.5px;
+  letter-spacing: 0.03em;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  animation: waPulse 2.6s ease-out infinite;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.button:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  color: #04240f;
+}

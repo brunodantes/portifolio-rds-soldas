@@ -1,0 +1,100 @@
+.footer {
+  padding: 56px 24px 40px;
+  background: #040b1c;
+  border-top: 1px solid rgba(160, 190, 255, 0.12);
+}
+
+.grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 40px;
+}
+
+.brandRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(150deg, #f6f8fa, #b9c0cb 46%, #f0f3f6 58%, #98a0ac);
+}
+
+.logo span {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 15px;
+  color: var(--dark-ink);
+}
+
+.brandTitle {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.brandSubtitle {
+  font-size: 12.5px;
+  color: var(--dim-blue);
+  line-height: 1.2;
+}
+
+.tagline {
+  margin: 0;
+  max-width: 300px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--dim-blue);
+}
+
+.colLabel {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--dim-blue-2);
+  margin-bottom: 14px;
+}
+
+.colLinks {
+  display: grid;
+  gap: 9px;
+  font-size: 14.5px;
+  color: #c2cfe4;
+}
+
+.colLinks a {
+  color: #c2cfe4;
+}
+
+.colLinks a:hover {
+  color: #fff;
+}
+
+.provisional {
+  font-size: 12.5px;
+  color: var(--dim-blue-2);
+}
+
+.bottomRow {
+  max-width: 1200px;
+  margin: 40px auto 0;
+  padding-top: 22px;
+  border-top: 1px solid rgba(160, 190, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 13px;
+  color: #41567c;
+}

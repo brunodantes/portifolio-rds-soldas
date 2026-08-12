@@ -12,6 +12,7 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    "Landing page com efeitos de solda/**",
   ]),
 ]);
 
