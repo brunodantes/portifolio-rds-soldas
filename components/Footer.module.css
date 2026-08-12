@@ -1,10 +1,12 @@
 .footer {
+  position: relative;
   padding: 56px 24px 40px;
   background: #040b1c;
   border-top: 1px solid rgba(160, 190, 255, 0.12);
 }
 
 .grid {
+  position: relative;
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
@@ -87,6 +89,7 @@
 }
 
 .bottomRow {
+  position: relative;
   max-width: 1200px;
   margin: 40px auto 0;
   padding-top: 22px;

@@ -1,3 +1,4 @@
+import GridPattern from "./GridPattern";
 import styles from "./ValueProps.module.css";
 
 const ITEMS = [
@@ -22,6 +23,7 @@ const ITEMS = [
 export default function ValueProps() {
   return (
     <section className={styles.section}>
+      <GridPattern />
       <div className={styles.grid}>
         {ITEMS.map((item) => (
           <div key={item.title} className={styles.card}>

@@ -261,3 +261,46 @@
   border-radius: 50%;
   background: var(--red-strong);
 }
+
+@keyframes arcRun {
+  0% {
+    transform: translateX(-12%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(112%);
+    opacity: 0;
+  }
+}
+
+@keyframes sheen {
+  0% {
+    transform: translateX(-140%) skewX(-18deg);
+  }
+  55%,
+  100% {
+    transform: translateX(240%) skewX(-18deg);
+  }
+}
+
+@keyframes arcFlicker {
+  0%,
+  100% {
+    opacity: 0.32;
+  }
+  42% {
+    opacity: 0.55;
+  }
+  47% {
+    opacity: 0.22;
+  }
+  62% {
+    opacity: 0.6;
+  }
+}

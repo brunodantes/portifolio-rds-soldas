@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { CONTACT_EMAIL, WHATSAPP_DISPLAY, whatsappLink } from "@/lib/constants";
-import Embers from "./Embers";
+import GridPattern from "./GridPattern";
 import styles from "./Contact.module.css";
 
 type Status = "idle" | "sending" | "sent" | "error";
@@ -46,7 +46,7 @@ export default function Contact() {
 
   return (
     <section id="contato" className={styles.section}>
-      <Embers preset={2} />
+      <GridPattern />
 
       <div className={styles.grid}>
         <div>

@@ -1,4 +1,4 @@
-import Embers from "./Embers";
+import GridPattern from "./GridPattern";
 import styles from "./Process.module.css";
 
 const STEPS = [
@@ -51,7 +51,7 @@ const COMMITMENTS = [
 export default function Process() {
   return (
     <section id="padrao" className={styles.section}>
-      <Embers preset={1} />
+      <GridPattern />
       <div className={styles.inner}>
         <div className={styles.intro}>
           <div className={styles.eyebrow}>PADRÃO DE TRABALHO</div>

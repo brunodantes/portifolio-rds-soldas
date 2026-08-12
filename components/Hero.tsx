@@ -1,12 +1,14 @@
 import { WHATSAPP_DISPLAY, CONTACT_EMAIL, whatsappLink } from "@/lib/constants";
-import Embers from "./Embers";
+import GridPattern from "./GridPattern";
+import WeldingSparks from "./WeldingSparks";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
   return (
     <section id="topo" className={styles.hero}>
+      <GridPattern />
       <div className={styles.fade} />
-      <Embers preset={0} />
+      <WeldingSparks density={1.3} />
 
       <div className={styles.grid}>
         <div>

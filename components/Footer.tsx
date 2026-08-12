@@ -1,9 +1,11 @@
 import { CONTACT_EMAIL, WHATSAPP_DISPLAY, whatsappLink } from "@/lib/constants";
+import GridPattern from "./GridPattern";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
   return (
     <footer className={styles.footer}>
+      <GridPattern />
       <div className={styles.grid}>
         <div>
           <div className={styles.brandRow}>

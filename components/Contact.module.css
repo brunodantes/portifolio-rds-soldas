@@ -192,6 +192,16 @@
   position: relative;
 }
 
+@keyframes sheen {
+  0% {
+    transform: translateX(-140%) skewX(-18deg);
+  }
+  55%,
+  100% {
+    transform: translateX(240%) skewX(-18deg);
+  }
+}
+
 .status {
   margin-top: 14px;
   text-align: center;
