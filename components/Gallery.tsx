@@ -6,20 +6,20 @@ import styles from "./Gallery.module.css";
 type Photo = {
   label: string;
   src?: string;
+  thumb?: string;
 };
 
-// src fica vazio até termos fotos reais dos trabalhos — quando adicionar,
-// o card e o lightbox passam a exibir a imagem automaticamente.
 const PHOTOS: Photo[] = [
-  { label: "Foto de trabalho 1" },
-  { label: "Foto de trabalho 2" },
-  { label: "Foto de trabalho 3" },
-  { label: "Foto de trabalho 4" },
-  { label: "Foto de trabalho 5" },
-  { label: "Foto de trabalho 6" },
-  { label: "Foto de trabalho 7" },
-  { label: "Foto de trabalho 8" },
-  { label: "Foto de trabalho 9" },
+  { label: "Foto de trabalho 1", src: "/trabalho-01.jpeg", thumb: "/thumbs/trabalho-01.jpeg" },
+  { label: "Foto de trabalho 2", src: "/trabalho-02.jpeg", thumb: "/thumbs/trabalho-02.jpeg" },
+  { label: "Foto de trabalho 3", src: "/trabalho-03.jpeg", thumb: "/thumbs/trabalho-03.jpeg" },
+  { label: "Foto de trabalho 4", src: "/trabalho-04.jpeg", thumb: "/thumbs/trabalho-04.jpeg" },
+  { label: "Foto de trabalho 5", src: "/trabalho-05.jpeg", thumb: "/thumbs/trabalho-05.jpeg" },
+  { label: "Foto de trabalho 6", src: "/trabalho-06.jpeg", thumb: "/thumbs/trabalho-06.jpeg" },
+  { label: "Foto de trabalho 7", src: "/trabalho-07.jpeg", thumb: "/thumbs/trabalho-07.jpeg" },
+  { label: "Foto de trabalho 8", src: "/trabalho-08.jpeg", thumb: "/thumbs/trabalho-08.jpeg" },
+  { label: "Foto de trabalho 9", src: "/trabalho-09.jpeg", thumb: "/thumbs/trabalho-09.jpeg" },
+  { label: "Foto de trabalho 10", src: "/trabalho-10.jpeg", thumb: "/thumbs/trabalho-10.jpeg" },
 ];
 
 function PhotoIcon() {
@@ -63,7 +63,7 @@ export default function Gallery() {
             <h2 className={styles.heading}>Serviço entregue, cliente satisfeito</h2>
           </div>
           <p className={styles.headingText}>
-            Em breve, fotos reais dos nossos trabalhos por aqui.
+            Alguns dos trabalhos que já entregamos.
           </p>
         </div>
         <div className={styles.grid}>
@@ -75,9 +75,9 @@ export default function Gallery() {
               onClick={() => setOpenIndex(i)}
               aria-label={`Ampliar ${photo.label}`}
             >
-              {photo.src ? (
+              {photo.thumb ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={photo.src} alt={photo.label} className={styles.slotImage} />
+                <img src={photo.thumb} alt={photo.label} className={styles.slotImage} loading="lazy" />
               ) : (
                 <>
                   <span className={styles.slotIcon}>
