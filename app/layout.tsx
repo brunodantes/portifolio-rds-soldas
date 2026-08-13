@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Archivo, Barlow } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const archivo = Archivo({
   variable: "--font-archivo",
@@ -44,6 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="pt-BR" className={`${archivo.variable} ${barlow.variable}`}>
       <Analytics/>
+      <SpeedInsights />
       <body>{children}</body>
     </html>
   );
